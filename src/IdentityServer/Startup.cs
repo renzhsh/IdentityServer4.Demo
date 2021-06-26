@@ -29,6 +29,7 @@ namespace IdentityServer
                 .AddInMemoryApiScopes(Config.ApiScopes)//配置授权范围
                 .AddInMemoryApiResources(Config.ApiResources)//配置API资源
                 .AddInMemoryClients(Config.Clients)//配置类定义的授权客户端
+                .AddTestUsers(Config.TestUsers)
                 ;
 
             //services.AddControllers();

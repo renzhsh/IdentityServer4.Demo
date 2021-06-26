@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientCredentials", "ClientCredentials", "{D3AAD975-0A5B-42C7-A058-86C660F771CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceApp", "ResourceApp\ResourceApp.csproj", "{C2C2BEB6-CA6F-4C15-9236-828158E353A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ResourceApp", "ResourceApp\ResourceApp.csproj", "{C2C2BEB6-CA6F-4C15-9236-828158E353A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{67647914-F805-453F-A59B-C062F110AB99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientApp", "ClientApp\ClientApp.csproj", "{67647914-F805-453F-A59B-C062F110AB99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PasswordCredentials", "PasswordCredentials", "{C016C663-0E51-4CA0-BDA9-B8D9F22F5AF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordApp", "PasswordApp\PasswordApp.csproj", "{A32A9EAE-C35F-4208-A53A-B9C865DF2908}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,10 @@ Global
 		{67647914-F805-453F-A59B-C062F110AB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67647914-F805-453F-A59B-C062F110AB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67647914-F805-453F-A59B-C062F110AB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32A9EAE-C35F-4208-A53A-B9C865DF2908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32A9EAE-C35F-4208-A53A-B9C865DF2908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32A9EAE-C35F-4208-A53A-B9C865DF2908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32A9EAE-C35F-4208-A53A-B9C865DF2908}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C2C2BEB6-CA6F-4C15-9236-828158E353A2} = {D3AAD975-0A5B-42C7-A058-86C660F771CE}
 		{67647914-F805-453F-A59B-C062F110AB99} = {D3AAD975-0A5B-42C7-A058-86C660F771CE}
+		{A32A9EAE-C35F-4208-A53A-B9C865DF2908} = {C016C663-0E51-4CA0-BDA9-B8D9F22F5AF8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3B696F4-7153-4E63-81D0-872731D885BF}

@@ -46,8 +46,17 @@ namespace IdentityServer
                       },
                       AllowedGrantTypes = GrantTypes.ClientCredentials,
                       AllowedScopes = { "api1"}
-
-                    }
+                    },
+                    new Client()
+                    {
+                      ClientId = "ro.client",
+                      ClientSecrets =
+                      {
+                            new Secret("secret".Sha256())
+                      },
+                      AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                      AllowedScopes = { "api1"}
+                    },
                };
 
         /// <summary>
