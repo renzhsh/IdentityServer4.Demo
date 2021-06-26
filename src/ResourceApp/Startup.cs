@@ -29,16 +29,14 @@ namespace ResourceApp
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
                 .AddIdentityServerAuthentication(options =>
                 {
-                    // 
+                    // 认证服务地址
                     options.Authority = "http://localhost:5000";
-                    // 
+                    // 不启用https
                     options.RequireHttpsMetadata = false;
                 });
 
-
-
             //https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki/PII
-            // PII == personally identifiable information
+            // 个人身份信息PII(personally identifiable information) 将在日志中展示
             IdentityModelEventSource.ShowPII = true;
 
             services.AddControllers();

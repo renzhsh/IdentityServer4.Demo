@@ -10,7 +10,7 @@ namespace IdentityServer
     public class Config
     {
         /// <summary>
-        /// 定义资源范围
+        /// 定义API资源
         /// </summary>
         public static IEnumerable<ApiResource> ApiResources =>
              new List<ApiResource>
@@ -19,7 +19,7 @@ namespace IdentityServer
               };
 
         /// <summary>
-        /// 
+        /// 定义资源范围
         /// </summary>
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]

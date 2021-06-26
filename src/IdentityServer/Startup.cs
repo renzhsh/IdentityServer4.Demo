@@ -25,9 +25,9 @@ namespace IdentityServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityServer()//注册服务
-                .AddDeveloperSigningCredential()
-                .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryApiResources(Config.ApiResources)//配置类定义的授权范围
+                .AddDeveloperSigningCredential() // 添加临时秘钥
+                .AddInMemoryApiScopes(Config.ApiScopes)//配置授权范围
+                .AddInMemoryApiResources(Config.ApiResources)//配置API资源
                 .AddInMemoryClients(Config.Clients)//配置类定义的授权客户端
                 ;
 

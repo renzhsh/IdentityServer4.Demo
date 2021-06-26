@@ -14,10 +14,8 @@ namespace ResourceApp.Controllers
     public class IdentityController : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            await Task.Delay(1);
-
             return new JsonResult(User.Claims.Select(c => new { c.Type, c.Value }));
         }
     }
