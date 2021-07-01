@@ -32,7 +32,7 @@ namespace IdentityServer
                 .AddTestUsers(Config.TestUsers)
                 ;
 
-            //services.AddControllers();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,13 +45,15 @@ namespace IdentityServer
 
             app.UseIdentityServer();
 
-            //app.UseRouting();
+            app.UseStaticFiles();
+
+            app.UseRouting();
             //app.UseAuthorization();
 
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllers();
-            //});
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 }
