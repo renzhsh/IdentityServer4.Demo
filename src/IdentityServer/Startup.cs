@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +31,7 @@ namespace IdentityServer
                 .AddInMemoryApiScopes(Config.ApiScopes)//配置授权范围
                 .AddInMemoryApiResources(Config.ApiResources)//配置API资源
                 .AddInMemoryClients(Config.Clients)//配置类定义的授权客户端
+                .AddInMemoryIdentityResources(Config.IdentityResources) // 添加IdentityResources
                 .AddTestUsers(Config.TestUsers)
                 ;
 
@@ -43,12 +46,22 @@ namespace IdentityServer
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseIdentityServer();
-
             app.UseStaticFiles();
 
             app.UseRouting();
-            //app.UseAuthorization();
+
+            app.UseIdentityServer();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+
+            // 浏览器的SameSite策略
+            // https://www.jianshu.com/p/7fb032cf2a98
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Lax
+            });
 
             app.UseEndpoints(endpoints =>
             {

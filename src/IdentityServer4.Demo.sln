@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PasswordCredentials", "Pass
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordApp", "PasswordApp\PasswordApp.csproj", "{A32A9EAE-C35F-4208-A53A-B9C865DF2908}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OidcCredentials", "OidcCredentials", "{47A168E2-E2EF-40BD-85A9-1F5FA429D44E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIdConnectApp", "OpenIdConnectApp\OpenIdConnectApp.csproj", "{99FA4C37-BEF9-4816-93C9-12818566323B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,10 @@ Global
 		{A32A9EAE-C35F-4208-A53A-B9C865DF2908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A32A9EAE-C35F-4208-A53A-B9C865DF2908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A32A9EAE-C35F-4208-A53A-B9C865DF2908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99FA4C37-BEF9-4816-93C9-12818566323B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99FA4C37-BEF9-4816-93C9-12818566323B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99FA4C37-BEF9-4816-93C9-12818566323B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99FA4C37-BEF9-4816-93C9-12818566323B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +53,7 @@ Global
 		{C2C2BEB6-CA6F-4C15-9236-828158E353A2} = {D3AAD975-0A5B-42C7-A058-86C660F771CE}
 		{67647914-F805-453F-A59B-C062F110AB99} = {D3AAD975-0A5B-42C7-A058-86C660F771CE}
 		{A32A9EAE-C35F-4208-A53A-B9C865DF2908} = {C016C663-0E51-4CA0-BDA9-B8D9F22F5AF8}
+		{99FA4C37-BEF9-4816-93C9-12818566323B} = {47A168E2-E2EF-40BD-85A9-1F5FA429D44E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3B696F4-7153-4E63-81D0-872731D885BF}

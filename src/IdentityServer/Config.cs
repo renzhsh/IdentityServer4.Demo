@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using IdentityServer4.Test;
 using System;
 using System.Collections.Generic;
@@ -57,10 +58,23 @@ namespace IdentityServer
                       AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                       AllowedScopes = { "api1"}
                     },
+                    new Client  // OIDC 隐式流客户端（MVC）
+                    {
+                        ClientId = "mvc",
+                        ClientName = "Mvc 客户端",
+                        AllowedGrantTypes = GrantTypes.Implicit,
+                        RequireConsent = true, // 授权确认页面
+                        RedirectUris = { "http://localhost:5002/signin-oidc" },// 登录后重定向到的地址
+                        AllowedScopes = new List<string>
+                        {
+                            IdentityServerConstants.StandardScopes.OpenId,
+                            IdentityServerConstants.StandardScopes.Profile
+                        }
+                    }
                };
 
         /// <summary>
-        /// 
+        /// 标准的Identity Scope
         /// </summary>
         /// <returns></returns>
         public static IEnumerable<IdentityResource> IdentityResources =>
