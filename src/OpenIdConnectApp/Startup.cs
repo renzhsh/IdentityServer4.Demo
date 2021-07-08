@@ -11,6 +11,7 @@ using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,6 +29,9 @@ namespace OpenIdConnectApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
             services.AddAuthentication(opt =>
             {
                 opt.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -37,9 +41,12 @@ namespace OpenIdConnectApp
                 .AddOpenIdConnect(options =>
                  {
                      options.Authority = "http://localhost:5000";
+                     options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                      options.RequireHttpsMetadata = false;
                      options.ClientId = "mvc";
-                     options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                     options.ClientSecret = "secret-mvc";
+                     //options.ResponseType = "code";
+                     options.SaveTokens = true;
                  });
 
 
