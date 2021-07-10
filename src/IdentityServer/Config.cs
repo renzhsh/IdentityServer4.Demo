@@ -62,7 +62,7 @@ namespace IdentityServer
                     {
                         ClientId = "im.client",
                         ClientName = "Mvc Implicit",
-                        ClientSecrets={ 
+                        ClientSecrets={
                             new Secret("secret".Sha256())
                         },
                         AllowedGrantTypes = GrantTypes.Implicit,
@@ -93,6 +93,27 @@ namespace IdentityServer
                             IdentityServerConstants.StandardScopes.OpenId,
                             IdentityServerConstants.StandardScopes.Profile
                         }
+                    },
+                    new Client  // 混合模式
+                    {
+                        ClientId = "hy.client",
+                        ClientName = "Mvc Hybrid",
+                        ClientSecrets={
+                            new Secret("secret".Sha256())
+                        },
+                        AllowedGrantTypes = GrantTypes.Hybrid,
+                        //RequireConsent = true, // 授权确认页面
+                        RedirectUris = { "http://localhost:5002/signin-oidc" },// 登录后重定向到的地址
+                        // where to redirect to after logout
+                        PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                        AllowedScopes = new List<string>
+                        {
+                            IdentityServerConstants.StandardScopes.OpenId,
+                            IdentityServerConstants.StandardScopes.Profile
+                        },
+                        RequirePkce=false,
+                        AllowAccessTokensViaBrowser=true,
+                        AllowOfflineAccess=true
                     }
                };
 

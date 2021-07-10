@@ -48,10 +48,21 @@ namespace OpenIdConnectApp
                      //options.ClientId = "im.client";
                      //options.ClientSecret = "secret";
 
-                     // ÊÚÈ¨Âë
-                     options.ClientId = "co.client";
+                     //// ÊÚÈ¨Âë
+                     //options.ClientId = "co.client";
+                     //options.ClientSecret = "secret";
+                     //options.ResponseType = "code";
+
+
+                     // Hybrid
+                     options.ClientId = "hy.client";
                      options.ClientSecret = "secret";
-                     options.ResponseType = "code";
+                     options.ResponseType = "code id_token token";
+
+                     options.SaveTokens = true;
+                     options.GetClaimsFromUserInfoEndpoint = true;
+
+                     options.Scope.Add("offline_access");
                  });
 
 
