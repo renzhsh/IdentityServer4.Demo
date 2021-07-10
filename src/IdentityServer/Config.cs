@@ -114,6 +114,26 @@ namespace IdentityServer
                         RequirePkce=false,
                         AllowAccessTokensViaBrowser=true,
                         AllowOfflineAccess=true
+                    },
+                    new Client  // js客户端
+                    {
+                        ClientId = "js.client",
+                        ClientName = "Mvc Code",
+                        ClientSecrets={
+                            new Secret("secret".Sha256())
+                        },
+                        AllowedGrantTypes = GrantTypes.Implicit,
+                        AllowAccessTokensViaBrowser=true,
+                        //RequireConsent = true, // 授权确认页面
+                        RedirectUris = { "http://localhost:5002/callback.html" },// 登录后重定向到的地址
+                        // where to redirect to after logout
+                        PostLogoutRedirectUris = { "http://localhost:5002/index.html" },
+                        AllowedCorsOrigins = { "http://localhost:5002" },
+                        AllowedScopes = new List<string>
+                        {
+                            IdentityServerConstants.StandardScopes.OpenId,
+                            IdentityServerConstants.StandardScopes.Profile
+                        }
                     }
                };
 
