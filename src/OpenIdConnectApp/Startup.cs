@@ -43,16 +43,23 @@ namespace OpenIdConnectApp
                      options.Authority = "http://localhost:5000";
                      options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                      options.RequireHttpsMetadata = false;
-                     options.ClientId = "mvc";
-                     options.ClientSecret = "secret-mvc";
-                     //options.ResponseType = "code";
-                     options.SaveTokens = true;
+
+                     //// Implicit
+                     //options.ClientId = "im.client";
+                     //options.ClientSecret = "secret";
+
+                     // 授权码
+                     options.ClientId = "co.client";
+                     options.ClientSecret = "secret";
+                     options.ResponseType = "code";
                  });
 
 
             //https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki/PII
             // 个人身份信息PII(personally identifiable information) 将在日志中展示
-            IdentityModelEventSource.ShowPII = true;
+            //IdentityModelEventSource.ShowPII = true;
+
+            //services.ConfigureNonBreakingSameSiteCookies();
 
             services.AddControllersWithViews();
         }
@@ -73,7 +80,14 @@ namespace OpenIdConnectApp
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseCookiePolicy();
+
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Lax
+            });
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

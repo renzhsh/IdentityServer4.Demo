@@ -35,6 +35,8 @@ namespace IdentityServer
                 .AddTestUsers(Config.TestUsers)
                 ;
 
+            //services.ConfigureNonBreakingSameSiteCookies();
+
             services.AddControllersWithViews();
         }
 
@@ -52,16 +54,17 @@ namespace IdentityServer
 
             app.UseIdentityServer();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseCookiePolicy();
 
-
-            // 浏览器的SameSite策略
-            // https://www.jianshu.com/p/7fb032cf2a98
+            // TODO: 制定Cookie方案
+            // 浏览器的SameSite策略 https://www.jianshu.com/p/7fb032cf2a98
             app.UseCookiePolicy(new CookiePolicyOptions
             {
                 MinimumSameSitePolicy = SameSiteMode.Lax
             });
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

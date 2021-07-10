@@ -60,13 +60,31 @@ namespace IdentityServer
                     },
                     new Client  // OIDC 隐式流客户端（MVC）
                     {
-                        ClientId = "mvc",
+                        ClientId = "im.client",
                         ClientName = "Mvc Implicit",
                         ClientSecrets={ 
-                            new Secret("secret-mvc".Sha256())
+                            new Secret("secret".Sha256())
                         },
                         AllowedGrantTypes = GrantTypes.Implicit,
-                        RequireConsent = true, // 授权确认页面
+                        //RequireConsent = true, // 授权确认页面
+                        RedirectUris = { "http://localhost:5002/signin-oidc" },// 登录后重定向到的地址
+                        // where to redirect to after logout
+                        PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                        AllowedScopes = new List<string>
+                        {
+                            IdentityServerConstants.StandardScopes.OpenId,
+                            IdentityServerConstants.StandardScopes.Profile
+                        }
+                    },
+                    new Client  // 授权码客户端
+                    {
+                        ClientId = "co.client",
+                        ClientName = "Mvc Code",
+                        ClientSecrets={
+                            new Secret("secret".Sha256())
+                        },
+                        AllowedGrantTypes = GrantTypes.Code,
+                        //RequireConsent = true, // 授权确认页面
                         RedirectUris = { "http://localhost:5002/signin-oidc" },// 登录后重定向到的地址
                         // where to redirect to after logout
                         PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
