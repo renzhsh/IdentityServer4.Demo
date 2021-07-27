@@ -19,7 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OidcCredentials", "OidcCred
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenIdConnectApp", "OpenIdConnectApp\OpenIdConnectApp.csproj", "{99FA4C37-BEF9-4816-93C9-12818566323B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jsClient", "jsClient\jsClient.csproj", "{41DA082D-052F-4B27-AD17-F84B148CAE7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "jsClient", "jsClient\jsClient.csproj", "{41DA082D-052F-4B27-AD17-F84B148CAE7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer.Storage", "IdentityServer.Storage\IdentityServer.Storage.csproj", "{FA7CB6AB-E8EC-4296-8ECC-B19DF5F92D23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{41DA082D-052F-4B27-AD17-F84B148CAE7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41DA082D-052F-4B27-AD17-F84B148CAE7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41DA082D-052F-4B27-AD17-F84B148CAE7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA7CB6AB-E8EC-4296-8ECC-B19DF5F92D23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA7CB6AB-E8EC-4296-8ECC-B19DF5F92D23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA7CB6AB-E8EC-4296-8ECC-B19DF5F92D23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA7CB6AB-E8EC-4296-8ECC-B19DF5F92D23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
