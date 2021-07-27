@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace IdentityServer.Storage
 {
@@ -22,10 +23,28 @@ namespace IdentityServer.Storage
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var connectionString = Configuration.GetConnectionString("id4mssql");
+            var migrationsAssembly = typeof(Startup).Assembly.GetName().Name;
+
+
+            Action<DbContextOptionsBuilder> dbContextBuilder = builder =>
+             {
+                 builder.UseSqlServer(connectionString, sqlOptions =>
+                 {
+                     sqlOptions.MigrationsAssembly(migrationsAssembly);
+                 });
+             };
+
             services.AddIdentityServer()//注册服务
                 .AddDeveloperSigningCredential() // 添加临时秘钥
-                .AddInMemoryApiResources(Config.ApiResources)//配置API资源
-                .AddInMemoryClients(Config.Clients)//配置类定义的授权客户端
+                .AddConfigurationStore(options =>
+                {
+                    options.ConfigureDbContext = dbContextBuilder;
+                })
+                .AddOperationalStore(options =>
+                {
+                    options.ConfigureDbContext = dbContextBuilder;
+                })
                 ;
 
             services.AddControllersWithViews();
